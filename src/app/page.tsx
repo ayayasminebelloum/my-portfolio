@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import Hero from "../../components/Hero";
 import About from "../../components/About";
 import Experience from "../../components/Experience";
@@ -37,7 +36,7 @@ export default function Home() {
                 ? "bg-blue-600 text-white"
                 : "bg-gray-200 text-gray-800"
             }`}
-            onClick={() => setLang(lng as any)}
+            onClick={() => setLang(lng as "en" | "fr" | "es" | "ar")}
           >
             {
               translations[lng as keyof typeof translations].language
