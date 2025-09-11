@@ -29,3 +29,4 @@ const Skills = ({ lang }) => {
 };
 
 export default Skills;
+ 
