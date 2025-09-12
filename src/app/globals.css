@@ -167,6 +167,140 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
   .hero-icons { padding: 0 6px; bottom: 12px; }
 }
 
+/* About section - match hero height and background color */
+.about-section {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  min-height: 665px;
+  height: 665px;
+  background-color: #B660CD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+/* Centered content card inside About */
+.about-card {
+  background: rgba(255,255,255,0.06); /* subtle translucent card for contrast */
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* About text */
+.about-card h2 {
+  font-family: 'Quicksand', sans-serif;
+  color: #ffffff;
+}
+
+.about-card .about-body {
+  color: rgba(255,255,255,0.95);
+  font-family: 'Poppins', sans-serif;
+  margin-top: 0.5rem;
+}
+
+/* About section layout updates */
+.about-content {
+  transform: translateX(100px); /* moved 100px to the right */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Polaroid styling */
+.polaroid {
+  background: white;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+  position: relative;
+  transform: rotate(-4deg) translateX(-150px); /* moved 50px more left */
+  transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: rotate(-2deg) scale(1.02);
+}
+
+.polaroid-img {
+  width: 280px;
+  height: 350px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.polaroid-caption {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  margin-top: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+}
+
+/* CV Download button */
+.cv-download-btn {
+  position: absolute;
+  bottom: -90px; /* changed from 150px */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 2rem;
+  background: white;
+  color: #B660CD;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+}
+
+.cv-download-btn:hover {
+  background: transparent;
+  color: white;
+}
+
+/* RTL support */
+.rtl .about-content {
+  transform: translateX(-200px); /* opposite direction for RTL */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-card {
+    padding: 1.25rem;
+  }
+  .about-card h2 {
+    font-size: 1.75rem;
+  }
+  .about-card .about-body {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-content {
+    transform: none;
+    flex-direction: column !important;
+    padding: 2rem;
+  }
+  
+  .polaroid {
+    transform: rotate(-2deg);
+    margin-bottom: 2rem;
+  }
+  
+  .cv-download-btn {
+    position: relative;
+    bottom: auto;
+    margin-top: 2rem;
+  }
+}
+
 /* Section transitions helper */
 .section-transition {
   position: relative;
