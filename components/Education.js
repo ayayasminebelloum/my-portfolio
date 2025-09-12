@@ -1,79 +1,138 @@
+import { useState } from "react";
+import Image from "next/image";
+import GemsCoursework from "./coursework/GemsCoursework";
+import IECoursework from "./coursework/IECoursework";
+
 const educationContent = {
   en: {
-    title: "EDUCATION",
+    title: "Education",
     schools: [
       {
-        name: "GEMS American Academy - Doha, Qatar",
-        period: "06/2022",
-        degree: "Grade 11 and 12 High School",
-        achievements: [
-          "Honours Student Academic Achievement Award",
-          "Coursework in AP Computer Science",
-          "Coursework in AP Calculus",
-          "Coursework in AP Physics",
-          "Coursework in AP Chemistry",
-        ],
+        logo: "/ie.png",
+        name: "IE University",
+        years: "2022 - 2026",
+        location: "Madrid, Spain",
+        program: "Bachelor's Program in Computer Science & Artificial Intelligence",
+        buttonText: "View Key Coursework",
       },
       {
-        name: "IE University",
-        period: "2022-2026",
-        degree: "Bachelor’s Program in Computer Science & Artificial Intelligence",
-        coursework: [
-          "Programming I & II",
-          "Algorithms & Data Structures",
-          "High-Performance Computing",
-          "Software Development & DevOps",
-          "Database Design",
-          "Discrete Mathematics",
-          "Calculus",
-          "Probability & Statistics",
-          "Data Analysis",
-          "Machine Learning",
-          "Reinforcement Learning",
-          "Natural Language Processing",
-          "Computer Vision",
-          "AI Reasoning & Problem Solving",
-          "Chatbots & Recommendation Engines",
-          "Project Management & Innovation",
-        ],
+        logo: "/gems.png",
+        name: "GEMS American Academy",
+        location: "Doha, Qatar",
+        years: "2020-2022",
+        program: "High School: Grade 11 & 12",
+        buttonText: "View AP Courses",
       },
     ],
   },
-  // Add other languages here
+  fr: {
+    title: "Formation",
+    schools: [
+      {
+        logo: "/ie.png",
+        name: "IE University",
+        years: "2022 - 2026",
+        location: "Madrid, Espagne",
+        program: "Licence en Informatique et Intelligence Artificielle",
+        buttonText: "Voir les cours",
+      },
+      {
+        logo: "/gems.png",
+        name: "GEMS American Academy",
+        location: "Doha, Qatar",
+        years: "2020-2022",
+        program: "Lycée: Classes de Première et Terminale",
+        buttonText: "Voir les cours AP",
+      },
+    ],
+  },
+  es: {
+    title: "Educación",
+    schools: [
+      {
+        logo: "/ie.png",
+        name: "IE University",
+        years: "2022 - 2026",
+        location: "Madrid, España",
+        program: "Grado en Informática e Inteligencia Artificial",
+        buttonText: "Ver asignaturas",
+      },
+      {
+        logo: "/gems.png",
+        name: "GEMS American Academy",
+        location: "Doha, Qatar",
+        years: "2020-2022",
+        program: "Bachillerato: Grados 11 y 12",
+        buttonText: "Ver cursos AP",
+      },
+    ],
+  },
+  ar: {
+    title: "التعليم",
+    schools: [
+      {
+        logo: "/ie.png",
+        name: "جامعة IE",
+        years: "٢٠٢٢ - ٢٠٢٦",
+        location: "مدريد، إسبانيا",
+        program: "بكالوريوس في علوم الحاسوب والذكاء الاصطناعي",
+        buttonText: "عرض المواد الدراسية",
+      },
+      {
+        logo: "/gems.png",
+        name: "أكاديمية جيمس الأمريكية",
+        location: "الدوحة، قطر",
+        years: "٢٠٢٠-٢٠٢٢",
+        program: "المدرسة الثانوية: الصف ١١ و ١٢",
+        buttonText: "عرض دورات AP",
+      },
+    ],
+  },
 };
 
-const Education = ({ lang }) => {
-  const t = educationContent[lang] || educationContent.en;
+const Education = ({ lang = "en" }) => {
+  const [showCoursework, setShowCoursework] = useState(null);
+  const content = educationContent[lang] || educationContent.en;
+
   return (
-    <section id="education" className="w-full max-w-3xl mx-auto py-8">
-      <h2 className="text-2xl font-bold mb-2">{t.title}</h2>
-      {t.schools.map((school, i) => (
-        <div key={i} className="mb-4">
-          <div className="font-semibold">
-            {school.name}{" "}
-            {school.period && `| ${school.period}`}
-          </div>
-          <div className="mb-1">{school.degree}</div>
-          {school.achievements && (
-            <ul className="list-disc list-inside ml-4 mb-2">
-              {school.achievements.map((a, j) => (
-                <li key={j}>{a}</li>
-              ))}
-            </ul>
-          )}
-          {school.coursework && (
-            <div>
-              <span className="font-semibold">Key coursework:</span>
-              <ul className="list-disc list-inside ml-4">
-                {school.coursework.map((c, j) => (
-                  <li key={j}>{c}</li>
-                ))}
-              </ul>
+    <section className="education-section">
+      <div className="education-content">
+        {content.schools.map((school, index) => (
+          <div key={index} className="education-patch fabric-patch">
+            <div className="school-logo">
+              <Image
+                src={school.logo}
+                alt={school.name}
+                width={120}
+                height={120}
+                className="rounded-full bg-white p-2"
+              />
             </div>
-          )}
-        </div>
-      ))}
+            <h3 className="school-name">{school.name}</h3>
+            {school.location && (
+              <p className="school-location">{school.location}</p>
+            )}
+            <p className="school-years">{school.years}</p>
+            <p className="school-program text-center">{school.program}</p>
+            <button
+              className="view-courses-btn"
+              onClick={() => setShowCoursework(index)}
+            >
+              {school.buttonText}
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {showCoursework === 1 && (
+        <GemsCoursework lang={lang} onClose={() => setShowCoursework(null)} />
+      )}
+      {showCoursework === 0 && (
+        <IECoursework lang={lang} onClose={() => setShowCoursework(null)} />
+      )}
     </section>
   );
 };
+
 export default Education;
+

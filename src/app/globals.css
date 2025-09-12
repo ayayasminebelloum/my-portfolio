@@ -264,6 +264,249 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
   color: white;
 }
 
+/* Education section styling */
+.education-section {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  min-height: 665px;
+  height: 665px;
+  background-color: #B660CD;
+  background-image: url('/edubg.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.education-content {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: stretch;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.education-patch {
+  background-color: #9870ab;
+  border: 2px dashed white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.education-patch::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.05) 0,
+    rgba(255,255,255,0.05) 1px,
+    transparent 1px,
+    transparent 6px
+  ),
+  repeating-linear-gradient(
+    -45deg,
+    rgba(0,0,0,0.05) 0,
+    rgba(0,0,0,0.05) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.school-logo {
+  margin-bottom: 0.5rem;
+}
+
+.school-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.school-years {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.school-program {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+  min-height: 4.2rem; /* Ensure consistent height for program text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.key-courses {
+  width: 100%;
+  text-align: center;
+}
+
+.key-courses h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.key-courses ul {
+  list-style: none;
+  padding: 0;
+}
+
+.course-link {
+  color: white;
+  text-decoration: underline;
+  padding: 0.25rem 0;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.course-link:hover {
+  opacity: 0.8;
+}
+
+/* Coursework Modal Styles */
+.coursework-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.coursework-content {
+  background: #9870ab;
+  border: 2px dashed white;
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: white;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.view-courses-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  color: #9870ab;
+  border: 2px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.view-courses-btn:hover {
+  background: transparent;
+  color: white;
+}
+
+.courses-list ul,
+.achievements-list ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+/* Coursework specific styles */
+.score-item {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.score-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.score {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.sat-score {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.sat-score .score {
+  font-size: 2rem;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.course-item {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Adjust IE logo size */
+.education-patch:first-child .school-logo img {
+  object-fit: cover !important;
+  width: 120px !important;
+  height: 120px !important;
+  padding: 20px !important;
+  background: white;
+  border-radius: 50%;
+  transform: scale(0.8); /* This makes the circle smaller while keeping logo original size */
+}
+
+/* Push down AP courses button */
+.education-patch:last-child .view-courses-btn {
+  margin-top: 20px;
+}
+
 /* RTL support */
 .rtl .about-content {
   transform: translateX(-200px); /* opposite direction for RTL */
@@ -279,6 +522,16 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
   }
   .about-card .about-body {
     font-size: 0.95rem;
+  }
+  
+  .education-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .education-patch {
+    max-width: 100%;
   }
 }
 
