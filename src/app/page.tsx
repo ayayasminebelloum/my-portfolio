@@ -12,6 +12,7 @@ import Blog from "../../components/Blog";
 import Contact from "../../components/Contact";
 import Resume from "../../components/Resume";
 
+
 // Example translation object (replace with i18n solution later)
 const translations = {
   en: { language: "English" },
@@ -48,14 +49,14 @@ export default function Home() {
       <main className="flex flex-col gap-12 items-center">
         <Hero lang={lang} />
         <About lang={lang} />
+        <Education lang={lang} />
         <Experience lang={lang} />
         <Projects lang={lang} />
         <TechnologyStack lang={lang} />
         <Skills lang={lang} />
-        <Education lang={lang} />
+        <Contact lang={lang} />
         <Achievements lang={lang} />
         <Blog lang={lang} />
-        <Contact lang={lang} />
         <Resume lang={lang} />
       </main>
     </div>
