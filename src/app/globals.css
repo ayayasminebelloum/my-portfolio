@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Quicksand:wght@700&family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,4 +48,129 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
   box-shadow: none !important;
   margin-bottom: 0 !important;
   padding: 0 !important;
+}
+
+/* New hero background and name box styling */
+.hero-section {
+  /* use background image directly (no transparent overlay) */
+  background-image: url('/herobg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* ensure full-bleed look and cover 500px */
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  /* set height to cover 500px of the page */
+  min-height: 500px;
+  height: 665px; /* hero height */
+  /* keep same padding as before */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Reduce the hero height on small screens for better UX */
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: 400px;
+    height: auto; /* allow content to flow if needed on very small screens */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Centered rectangle containing the full name */
+.hero-name-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* ensure subtitle stacks under name */
+  min-width: 320px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  border-radius: 0.75rem;
+  /* Glassmorphism */
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+.hero-name-box h1 {
+  margin: 0;
+  font-family: 'Cormorant SC', serif;
+  font-weight: 700;
+  font-size: 4.4rem; /* doubled size */
+  color: #e9cae9;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+.hero-name-box .hero-subtitle {
+  margin: 0.5rem 0 0;
+  font-family: 'Cormorant SC', serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  color: #e9cae9;
+  opacity: 0.95;
+}
+
+/* Bottom icons bar: positioned 20px above hero bottom, full-width */
+.hero-icons {
+  position: absolute;
+  left: 0;
+  bottom: 0px; /* moved up 20px */
+  width: 100%;
+  padding: 0 12px;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 -6px 24px rgba(0,0,0,0.08);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+}
+
+/* each cell expands to fill available width so icons reach the borders */
+.hero-icon-cell {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  min-width: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.hero-icon-cell:hover {
+  transform: translateY(-2px);
+}
+.hero-icon-cell span { margin-top: 6px; font-size: 0.75rem; }
+
+/* ensure language buttons on hero are visible */
+.hero-section .absolute {
+  z-index: 20;
+}
+
+/* normalize icon svg sizing (single place) */
+.hero-icon-cell svg,
+.hero-icon-cell svg[width] {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* small-screen adjustments */
+@media (max-width: 640px) {
+  .hero-name-box h1 { font-size: 2.4rem; }
+  .hero-name-box .hero-subtitle { font-size: 1.6rem; }
+  .hero-icon-cell svg, .hero-icon-cell svg[width] { width: 28px !important; height: 28px !important; }
+  .hero-icons { padding: 0 6px; bottom: 12px; }
+}
+
+/* Section transitions helper */
+.section-transition {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
