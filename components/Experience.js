@@ -1,43 +1,88 @@
-const experienceContent = {
-  en: {
-    title: "WORK EXPERIENCE",
-    jobs: [
-      {
-        company: "Qatar Gas Transport Company Ltd (NAKILAT)",
-        period: "July 2025 - October 2025",
-        role: "AI & Data Engineer / Document AI Specialist",
-        details: [
-          "Developed an in-house alternative to Azure Form Recognizer for automated invoice processing, building a full OCR and structured extraction pipeline and a reinforcement learning agent that learns from human database corrections to continuously improve accuracy."
-        ]
-      },
-      {
-        company: "Kongsberg Maritime Services",
-        period: "October 2025 - December 2025",
-        role: "Machine Learning Intern",
-        details: [
-          "Designed and deployed advanced ML models on complex industrial datasets, applying explainable AI techniques to deliver interpretable, actionable insights while leading end-to-end preprocessing, feature engineering, evaluation, and visualization."
-        ]
-      }
-    ]
-  },
-  // Add other languages here
+import { useState } from "react";
+import Image from "next/image";
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { internshipContent } from "../content/internshipDescriptions";
+import NakilatDescription from "./experience/NakilatDescription";
+import KongsbergDescription from "./experience/KongsbergDescription";
+
+// UI translations for buttons and badges
+const uiText = {
+  en: { learnMore: "Learn More", comingSoon: "Coming Soon" },
+  fr: { learnMore: "Voir plus", comingSoon: "Bientôt disponible" },
+  es: { learnMore: "Ver más", comingSoon: "Próximamente" },
+  ar: { learnMore: "المزيد", comingSoon: "قريباً" },
 };
 
-const Experience = ({ lang }) => {
-  const t = experienceContent[lang] || experienceContent.en;
+export default function Experience({ lang = "en" }) {
+  const [showCompany, setShowCompany] = useState(null);
+  const content = internshipContent[lang] || internshipContent.en;
+  const text = uiText[lang] || uiText.en;
+
+  const companies = [
+    { ...content.nakilat, logo: "/nakilat.png", status: "active" },
+    { ...content.kongsberg, logo: "/kongsberg.png", status: "coming-soon" }
+  ];
+
   return (
-    <section id="experience" className="w-full max-w-3xl mx-auto py-8">
-      <h2 className="text-2xl font-bold mb-2">{t.title}</h2>
-      {t.jobs.map((job, i) => (
-        <div key={i} className="mb-4">
-          <div className="font-semibold">{job.company} | {job.period}</div>
-          <div className="italic">{job.role}</div>
-          <ul className="list-disc list-inside ml-4">
-            {job.details.map((d, j) => <li key={j}>{d}</li>)}
-          </ul>
-        </div>
-      ))}
+    <section className="experience-section">
+      <div className="experience-content">
+        <VerticalTimeline>
+          {companies.map((company, index) => (
+            <VerticalTimelineElement
+              key={index}
+              className={`vertical-timeline-element ${company.status}`}
+              date={company.period}
+              contentStyle={{
+                background: "#f5f5f5",
+                border: "2px dashed white",
+                borderRadius: "8px",
+                boxShadow: "0 0 6px rgba(0,0,0,0.2)",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #f5f5f5" }}
+              iconStyle={{ background: "white", color: "#fff" }}
+              icon={
+                <div className="company-logo-wrapper">
+                  <Image
+                    src={company.logo}
+                    alt={company.company}
+                    width={60}
+                    height={60}
+                    className="company-logo"
+                  />
+                </div>
+              }
+            >
+              <div className="timeline-content">
+                {company.status === "coming-soon" && (
+                  <div className="coming-soon-badge">{text.comingSoon}</div>
+                )}
+                <h3 className="job-title">{company.title}</h3>
+                <h4 className="company-name">{company.company}</h4>
+                <div className="skills-container">
+                  {company.skills.map((skill, idx) => (
+                    <span key={idx} className="skill-tag">{skill}</span>
+                  ))}
+                </div>
+
+                <button
+                  className="view-courses-btn"
+                  onClick={() => setShowCompany(index)}
+                >
+                  {text.learnMore}
+                </button>
+              </div>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
+      </div>
+
+      {showCompany === 0 && (
+        <NakilatDescription lang={lang} onClose={() => setShowCompany(null)} />
+      )}
+      {showCompany === 1 && (
+        <KongsbergDescription lang={lang} onClose={() => setShowCompany(null)} />
+      )}
     </section>
   );
-};
-export default Experience;
+}
