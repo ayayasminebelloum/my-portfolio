@@ -14,7 +14,8 @@
     "next": "^15.5.3",
     "react": "19.1.0",
     "react-awesome-slider": "^4.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-vertical-timeline-component": "^3.5.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

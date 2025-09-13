@@ -174,7 +174,7 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
   transform: translateX(-50%);
   min-height: 665px;
   height: 665px;
-  background-color: #B660CD;
+  background-color: #9870ab;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,7 +252,7 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
   transform: translateX(-50%);
   padding: 0.75rem 2rem;
   background: white;
-  color: #B660CD;
+  color: #9870ab;
   font-weight: 600;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
@@ -271,7 +271,7 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
   transform: translateX(-50%);
   min-height: 665px;
   height: 665px;
-  background-color: #B660CD;
+  background-color: #9870ab;
   background-image: url('/edubg.png');
   background-size: cover;
   background-position: center;
@@ -496,7 +496,7 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
   object-fit: cover !important;
   width: 120px !important;
   height: 120px !important;
-  padding: 20px !important;
+  padding: 5px !important;
   background: white;
   border-radius: 50%;
   transform: scale(0.8); /* This makes the circle smaller while keeping logo original size */
@@ -505,6 +505,245 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
 /* Push down AP courses button */
 .education-patch:last-child .view-courses-btn {
   margin-top: 20px;
+}
+
+/* Experience section styling */
+.experience-section {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  min-height: 665px;
+  height: auto;
+  background-color: #9870ab;
+  padding: 3rem 1rem;
+}
+
+.experience-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Timeline customization */
+.vertical-timeline-element-content {
+  background: #f5f5f5 !important;
+  color: #e9cae9 !important;
+}
+
+.vertical-timeline-element-date {
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+}
+
+/* Timeline customization updates */
+.vertical-timeline-element-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: white !important;
+  box-shadow: 0 0 0 4px white !important;
+}
+
+.company-logo-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.company-logo {
+  width: 90% !important;
+  height: 90% !important;
+  object-fit: contain !important;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #9870ab;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #e9cae9;
+  margin-bottom: 1rem;
+}
+
+.job-title {
+  color: #4a2c5c;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.company-name {
+  color: #753c88;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.skill-tag {
+  background: #9870ab;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Modal styles - ensure overlay sits above transformed parents */
+.modal {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* very high to overlay everything */
+  padding: 2rem;
+}
+
+/* Slightly adjust modal-content for clearer popup appearance */
+.modal-content {
+  background: #fff; /* white box for readability */
+  color: #333;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 720px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  border: 2px solid rgba(0,0,0,0.06);
+}
+
+/* Close button visibility */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+/* modal text colors */
+.modal-body .job-title { color: #4a2c5c; }
+.modal-body .company-name { color: #753c88; }
+.modal-body .period, .modal-body .details-text { color: #333; }
+
+/* RTL support */
+.rtl .about-content {
+  transform: translateX(-200px); /* opposite direction for RTL */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-card {
+    padding: 1.25rem;
+  }
+  .about-card h2 {
+    font-size: 1.75rem;
+  }
+  .about-card .about-body {
+    font-size: 0.95rem;
+  }
+  
+  .education-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .education-patch {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-content {
+    transform: none;
+    flex-direction: column !important;
+    padding: 2rem;
+  }
+  
+  .polaroid {
+    transform: rotate(-2deg);
+    margin-bottom: 2rem;
+  }
+  
+  .cv-download-btn {
+    position: relative;
+    bottom: auto;
+    margin-top: 2rem;
+  }
+}
+
+/* Square centered learn-more button */
+.learn-more-wrapper {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.learn-more-btn {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background: white;
+  color: #9870ab;
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.learn-more-btn:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.learn-more-icon {
+  display: inline-block;
+  transform: translateY(-1px);
+}
+
+/* caption under the square button */
+.learn-more-caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #4a2c5c; /* darker caption for contrast */
+}
+
+/* Section transitions helper */
+.section-transition {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.modal-body .details-text {
+  color: white;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 /* RTL support */
