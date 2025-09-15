@@ -644,6 +644,80 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
 .modal-body .company-name { color: #753c88; }
 .modal-body .period, .modal-body .details-text { color: #333; }
 
+/* Language grid styling */
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.language-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.language-item:hover {
+  transform: translateY(-2px);
+}
+
+.language-icon {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  backdrop-filter: blur(4px);
+}
+
+.language-icon img {
+  filter: brightness(1.1);
+  transition: transform 0.2s ease;
+}
+
+.language-item:hover .language-icon img {
+  transform: scale(1.1);
+}
+
+.language-name {
+  color: #bfa7d7;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 100px;
+}
+
+/* RTL support for language grid */
+[dir="rtl"] .language-grid {
+  direction: rtl;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .language-grid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 1rem;
+  }
+
+  .language-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .language-name {
+    font-size: 0.8rem;
+  }
+}
+
 /* RTL support */
 .rtl .about-content {
   transform: translateX(-200px); /* opposite direction for RTL */
