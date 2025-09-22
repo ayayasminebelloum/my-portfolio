@@ -39,25 +39,43 @@ const categories = [
 	},
 ];
 
+const introSentences = {
+	en: "Here are the projects I worked on to date. Click on each to explore the project.",
+	fr: "Voici les projets sur lesquels j'ai travaillé à ce jour. Cliquez sur chacun pour explorer le projet.",
+	es: "Aquí están los proyectos en los que he trabajado hasta la fecha. Haz clic en cada uno para explorar el proyecto.",
+	ar: "هذه هي المشاريع التي عملت عليها حتى الآن. انقر على كل مشروع لاستكشافه."
+};
+
 const Projects = ({ lang }) => {
 	// Use Next.js router for navigation
 	const router = useRouter();
+	const intro = introSentences[lang] || introSentences.en;
 
 	return (
 		<section
 			id="projects"
-			className="w-full py-16 px-4"
+			className="w-full"
 			style={{
 				backgroundImage: "url('/edubg.png')",
 				backgroundSize: "cover",
 				backgroundPosition: "center",
-				minHeight: "665px",
+				minHeight: "950px",
+				height: "950px",
+				display: "flex",
+				alignItems: "center",
+				justifyContent: "center",
 			}}
 		>
-			<div className="max-w-6xl mx-auto">
+			<div className="max-w-6xl mx-auto w-full px-4">
 				<h2 className="text-4xl font-bold mb-10 text-white text-center">
 					PROJECTS
 				</h2>
+				<p
+					className="text-2xl font-bold text-center mb-8 max-w-2xl mx-auto"
+					style={{ color: "#171717" }}
+				>
+					{intro}
+				</p>
 				{/* Category Squares */}
 				<div className="flex flex-wrap justify-center gap-8 mb-12">
 					{categories.map((cat, idx) => (
@@ -71,7 +89,7 @@ const Projects = ({ lang }) => {
 								className="flex flex-col items-center justify-start"
 								style={{
 									width: 270,
-									minHeight: 420,
+									minHeight: 420, // restored to previous value
 									background: "#9870ab",
 									borderRadius: 24,
 									boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
