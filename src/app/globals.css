@@ -912,3 +912,79 @@ h1, h2, h3, h4, h5, h6, .font-quicksand {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+/* Projects section squares and circles */
+.projects-square {
+  width: 240px;
+  min-height: 320px;
+  background: #9870ab;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.projects-category-circle {
+  width: 68px;
+  height: 68px;
+  background: #9870ab;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  text-align: center;
+  padding: 0 6px;
+  line-height: 1.1;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+.projects-rectangle-btn {
+  width: 180px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #9870ab;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 12px;
+  transition: background 0.2s;
+}
+
+.projects-rectangle-btn:hover {
+  background: #f5f5f5;
+}
+
+/* Responsive for squares */
+@media (max-width: 768px) {
+  .projects-square {
+    width: 90vw;
+    min-width: 220px;
+    min-height: 220px;
+    padding-top: 16px;
+  }
+  .projects-category-circle {
+    width: 54px;
+    height: 54px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+  .projects-rectangle-btn {
+    width: 90vw;
+    min-width: 140px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+}

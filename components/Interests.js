@@ -145,7 +145,7 @@ const Interests = ({ lang = "en" }) => {
       <img
         src="/side.png"
         alt="Decorative side"
-        className="absolute bottom-10 right-[240px] w-auto h-[300px] object-contain z-0"
+        className="absolute bottom-10 right-[200px] w-auto h-[300px] object-contain z-0"
         style={{
           pointerEvents: 'none',
           opacity: 0.8

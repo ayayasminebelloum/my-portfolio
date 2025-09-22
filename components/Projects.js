@@ -1,73 +1,137 @@
-const projectsContent = {
-  en: {
-    title: "PROJECTS",
-    projects: [
-      {
-        name: "AI-Driven Event Management Optimization",
-        tags: "Machine Learning / Reinforcement Learning",
-        details: [
-          "Developed a predictive event recommendation system using deep learning and reinforcement learning to optimize audience engagement and resource allocation.",
-          "Applied regression models, NLP, and demand forecasting to enhance event planning and decision-making."
-        ]
-      },
-      {
-        name: "ArtifAI – Educational Artist Chatbot",
-        tags: "NLP / RAG Pipeline / GPT-2",
-        details: [
-          "Built a natural-language chatbot delivering historically accurate conversations with 50 famous painters using FAISS, MiniLM embeddings, and GPT-2 fine-tuned on synthetic Q&A.",
-          "Achieved high response relevance on consumer-grade hardware (≈1.7s per 75-token reply) without GPU acceleration; lessons informed modular RAG pipeline design and future multimodal/continual learning extensions."
-        ]
-      },
-      {
-        name: "AI-Powered Product Recommendation System",
-        tags: "Machine Learning / Hybrid Recommender",
-        details: [
-          "Designed and implemented hybrid recommendation models (content-based, collaborative, popularity) on 14M+ user interactions, increasing engagement and expected conversions.",
-          "Iteratively improved model performance through feature engineering, hyperparameter tuning, and metadata optimization."
-        ]
-      },
-      {
-        name: "Real-Time Gaze Tracking for Computer Vision",
-        tags: "",
-        details: [
-          "Captured live gaze data via webcam, visualized user attention on advertisements as heatmaps, and mapped gaze points to screen coordinates for actionable insights."
-        ]
-      },
-      {
-        name: "Banking App MVP Development",
-        tags: "Full-Stack / Software Development / DevOps",
-        details: [
-          "Developed a cloud-native banking MVP with secure user authentication, transaction management, and CI/CD pipelines using Agile practices.",
-          "Collaborated across roles: product vision, backend development, infrastructure automation, and cybersecurity integration."
-        ]
-      },
-      {
-        name: "Django Web App with MySQL & MongoDB",
-        tags: "Database Design / Full-Stack",
-        details: [
-          "Built a web application integrating relational (MySQL) and NoSQL (MongoDB) databases, implementing web scraping to populate structured and unstructured datasets.",
-          "Designed RESTful APIs, ORM models, and efficient data pipelines for scalable web applications."
-        ]
-      }
-    ]
-  },
-  // ...other languages...
-};
+"use client";  
+import { useRouter } from "next/navigation";
+
+const categories = [
+	{
+		name: "Machine Learning / AI",
+		color: "#9870ab",
+		projects: [
+			{ name: "Event Hacking", slug: "event-hacking" },
+			{ name: "DocSavvy", slug: "docsavvy" },
+			{ name: "Looklytics", slug: "looklytics" },
+			{ name: "Smart Elevators", slug: "smart-elevators" },
+			{ name: "Recommendation System", slug: "recommendation-system" },
+		],
+	},
+	{
+		name: "Games / Game AI",
+		color: "#e9cae9",
+		projects: [
+			{ name: "Brisca", slug: "brisca" },
+			{ name: "Stratego", slug: "stratego" },
+			{ name: "Minesweeper", slug: "minesweeper" },
+		],
+	},
+	{
+		name: "Chatbots / Conversational AI",
+		color: "#bfa7d7",
+		projects: [{ name: "ArtAI", slug: "artai" }],
+	},
+	{
+		name: "Systems / Software Engineering",
+		color: "#753c88",
+		projects: [
+			{ name: "CookWise", slug: "cookwise" },
+			{ name: "Xlang", slug: "xlang" },
+			{ name: "Sushi Girls", slug: "sushi-girls" },
+			{ name: "Star Bank", slug: "star-bank" },
+		],
+	},
+];
 
 const Projects = ({ lang }) => {
-  const t = projectsContent[lang] || projectsContent.en;
-  return (
-    <section id="projects" className="w-full max-w-3xl mx-auto py-8">
-      <h2 className="text-2xl font-bold mb-2">{t.title}</h2>
-      {t.projects.map((proj, i) => (
-        <div key={i} className="mb-4">
-          <div className="font-semibold">{proj.name} <span className="text-sm text-gray-500">{proj.tags}</span></div>
-          <ul className="list-disc list-inside ml-4">
-            {proj.details.map((d, j) => <li key={j}>{d}</li>)}
-          </ul>
-        </div>
-      ))}
-    </section>
-  );
+	// Use Next.js router for navigation
+	const router = useRouter();
+
+	return (
+		<section
+			id="projects"
+			className="w-full py-16 px-4"
+			style={{
+				backgroundImage: "url('/edubg.png')",
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+				minHeight: "665px",
+			}}
+		>
+			<div className="max-w-6xl mx-auto">
+				<h2 className="text-4xl font-bold mb-10 text-white text-center">
+					PROJECTS
+				</h2>
+				{/* Category Squares */}
+				<div className="flex flex-wrap justify-center gap-8 mb-12">
+					{categories.map((cat, idx) => (
+						<div
+							key={cat.name}
+							className="flex flex-col items-center"
+							style={{ minWidth: 160 }}
+						>
+							{/* Square container */}
+							<div
+								className="flex flex-col items-center justify-start"
+								style={{
+									width: 270,
+									minHeight: 420,
+									background: "#9870ab",
+									borderRadius: 24,
+									boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+									padding: "32px 0 0 0",
+									position: "relative",
+								}}
+							>
+								{/* Category Circle */}
+								<div
+									className="rounded-full flex items-center justify-center mb-6"
+									style={{
+										width: 88,
+										height: 88,
+										background: cat.color,
+										color: "#fff",
+										fontWeight: 700,
+										fontSize: "0.85rem",
+										boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+										textAlign: "center",
+										padding: "0 8px",
+										lineHeight: 1.1,
+										overflow: "hidden",
+										whiteSpace: "pre-line",
+									}}
+								>
+									<span style={{ textAlign: "center", fontSize: "0.85rem", fontWeight: 700 }}>
+										{cat.name}
+									</span>
+								</div>
+								{/* Project List */}
+								<ul className="flex flex-col gap-3 items-center w-full">
+									{cat.projects.map((proj) => (
+										<li key={proj.slug} className="w-full flex justify-center">
+											<button
+												className="rounded bg-white font-semibold shadow hover:bg-[#f5f5f5] transition"
+												onClick={() =>
+													router.push(`/projects/${proj.slug}`)
+												}
+												style={{
+													width: 180,
+													height: 42,
+													color: cat.color,
+													fontSize: "1rem",
+													display: "flex",
+													alignItems: "center",
+													justifyContent: "center",
+												}}
+											>
+												{proj.name}
+											</button>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	);
 };
+
 export default Projects;
