@@ -18,8 +18,8 @@ export default function Minesweeper() {
         <Image
           src="/Minesweeper/logo.png"
           alt="Minesweeper Logo"
-          width={320}
-          height={320}
+          width={640}
+          height={640}
           className="rounded-xl shadow-xl"
         />
       </div>
