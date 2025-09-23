@@ -1,4 +1,5 @@
-import Image from 'next/image';
+"use client";
+
 import { Icon } from '@iconify/react';
 
 const heroContent = {

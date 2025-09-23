@@ -263,4 +263,3 @@ const TechnologyStack = ({ lang = "en" }) => {
 
 export default TechnologyStack;
 
-
