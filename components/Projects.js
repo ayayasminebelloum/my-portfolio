@@ -78,7 +78,7 @@ const Projects = ({ lang }) => {
 				</p>
 				{/* Category Squares */}
 				<div className="flex flex-wrap justify-center gap-8 mb-12">
-					{categories.map((cat, idx) => (
+					{categories.map((cat) => (
 						<div
 							key={cat.name}
 							className="flex flex-col items-center"
