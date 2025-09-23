@@ -40,9 +40,9 @@ export default function Sushi() {
           href="https://github.com/ayayasminebelloum/Sushi_Girls"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-12 py-6 bg-[#2d14f4] text-[#ffd9d9] font-bold rounded-lg shadow hover:bg-[#2d14f4] transition mb-2 text-2xl"
+          className="px-12 py-6 bg-[#cc007e] text-white font-bold rounded-lg shadow hover:bg-[#cc007e] transition mb-2 text-2xl"
         >
-          Explore the Project's code
+          Explore the Project&apos;s code
         </a>
       </section>
 

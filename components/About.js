@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const aboutText = {
   en: {
     title: "About Me",
@@ -34,7 +36,13 @@ export default function About({ lang = "en" }) {
       <div className={`about-content flex ${isRTL ? 'flex-row-reverse' : 'flex-row'} items-center gap-8`}>
         <div className="polaroid-wrapper">
           <div className="polaroid">
-            <img src="/ayapic.jpg" alt="Aya-Yasmine Belloum" className="polaroid-img" />
+            <Image 
+              src="/ayapic.jpg"
+              alt="Aya-Yasmine Belloum"
+              width={500}
+              height={500}
+              className="polaroid-img"
+            />
             <div className="polaroid-caption">{content.title}</div>
           </div>
         </div>

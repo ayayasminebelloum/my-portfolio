@@ -41,7 +41,7 @@ export default function StarBank() {
           rel="noopener noreferrer"
           className="px-12 py-6 bg-[#823ca6] text-white font-bold rounded-lg shadow hover:bg-[#823ca6] transition mb-2 text-2xl"
         >
-          Explore the Project's code
+          Explore the Project&apos;s code
         </a>
       </section>
 

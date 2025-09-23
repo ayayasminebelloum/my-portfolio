@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const interestsContent = {
   en: {
     title: "PERSONAL INTERESTS",
@@ -142,9 +144,11 @@ const Interests = ({ lang = "en" }) => {
         </div>
       </div>
       {/* Side image */}
-      <img
+      <Image
         src="/side.png"
         alt="Decorative side"
+        width={500}
+        height={500}
         className="absolute bottom-10 right-[200px] w-auto h-[300px] object-contain z-0"
         style={{
           pointerEvents: 'none',
