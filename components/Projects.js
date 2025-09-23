@@ -10,7 +10,7 @@ const categories = [
 			{ name: "DocSavvy", slug: "docsavvy" },
 			{ name: "Looklytics", slug: "looklytics" },
 			{ name: "Smart Elevators", slug: "smart-elevators" },
-			{ name: "Recommendation System", slug: "recommendation-system" },
+			{ name: "Smart Recommendations", slug: "recommendation-system" },
 		],
 	},
 	{
