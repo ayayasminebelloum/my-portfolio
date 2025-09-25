@@ -8,11 +8,12 @@ import TechnologyStack from "../../components/TechnologyStack";
 import Skills from "../../components/Skills";
 import Education from "../../components/Education";
 import Achievements from "../../components/Achievements";
-import Blog from "../../components/Blog";
+import Paper from "../../components/Paper";
 import Contact from "../../components/Contact";
 import Resume from "../../components/Resume";
 import Interests from "../../components/Interests";
 import Languages from "../../components/Languages";
+import Papers from "../../components/Paper";
 
 
 // Example translation object (replace with i18n solution later)
@@ -50,6 +51,14 @@ export default function Home() {
           <Projects lang={lang} />
         </div>
 
+        <div id="achievements" className="w-full">
+          <Achievements lang={lang} />
+        </div>
+
+        <div id="papers" className="w-full">
+          <Papers lang={lang} />
+        </div>
+
         <div id="techStack" className="w-full">
           <TechnologyStack lang={lang} />
         </div>
@@ -70,17 +79,6 @@ export default function Home() {
           <Contact lang={lang} />
         </div>
 
-        <div id="achievements" className="w-full">
-          <Achievements lang={lang} />
-        </div>
-
-        <div id="blog" className="w-full">
-          <Blog lang={lang} />
-        </div>
-
-        <div id="resume" className="w-full">
-          <Resume lang={lang} />
-        </div>
       </main>
     </div>
   );

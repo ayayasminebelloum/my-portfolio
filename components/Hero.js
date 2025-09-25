@@ -159,6 +159,16 @@ const Hero = ({ lang = 'en', setLang = (v) => {}, translations = {} }) => {
           <Icon icon="mdi:folder" width="36" height="36" />
           <span className="text-xs font-quicksand mt-1">{content.icons.projects}</span>
         </div>
+        {/* Achievements icon */}
+        <div className="hero-icon-cell" onClick={() => handleNavClick('achievements')} role="button" tabIndex={0}>
+          <Icon icon="mdi:trophy" width="36" height="36" />
+          <span className="text-xs font-quicksand mt-1">Achievements</span>
+        </div>
+        {/* Papers icon */}
+        <div className="hero-icon-cell" onClick={() => handleNavClick('papers')} role="button" tabIndex={0}>
+          <Icon icon="mdi:file-document" width="36" height="36" />
+          <span className="text-xs font-quicksand mt-1">Papers</span>
+        </div>
         <div className="hero-icon-cell" onClick={() => handleNavClick('techStack')} role="button" tabIndex={0}>
           <Icon icon="mdi:tools" width="36" height="36" />
           <span className="text-xs font-quicksand mt-1">{content.icons.techStack}</span>
