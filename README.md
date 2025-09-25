@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aya-Yasmine Belloum Portfolio
+
+This is a multilingual portfolio website built with [Next.js](https://nextjs.org), showcasing my journey in Computer Science & Artificial Intelligence, research projects, hackathons, achievements, and more.
+
+## Features
+
+- Multilingual support: English, French, Spanish, Arabic
+- Sections: About, Education, Experience, Projects, Achievements & Hackathons, Research Papers, Tech Stack, Skills, Interests, Languages, Contact
+- Interactive navigation with icons for each section
+- Downloadable CV
+- Project and paper previews with direct links
+- Modern UI with glassmorphism and custom backgrounds
 
 ## Getting Started
 
-First, run the development server:
+To run locally:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/components` — All main section components (About, Projects, Achievements, Papers, etc.)
+- `/public` — Static assets (images, PDFs, backgrounds)
+- `/src/app/page.tsx` — Main page layout and section order
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+- To add new achievements, research papers, or projects, edit the corresponding component in `/components`.
+- To change languages or translations, update the translation objects in each component.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can deploy this site to [Vercel](https://vercel.com/) or any platform supporting Next.js.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is for personal portfolio use. Feel free to fork and adapt for your own academic or professional showcase.
