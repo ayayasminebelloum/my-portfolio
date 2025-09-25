@@ -13,6 +13,8 @@ const heroContent = {
       education: "Education",
       experience: "Experience",
       projects: "Projects",
+      achievements: "Achievements",
+      papers: "Papers",
       techStack: "Tech Stack",
       skills: "Skills",
       interests: "Interests",
@@ -30,6 +32,8 @@ const heroContent = {
       education: "Formation",
       experience: "Expérience",
       projects: "Projets",
+      achievements: "Réalisations",
+      papers: "Articles",
       techStack: "Technologies",
       skills: "Compétences",
       interests: "Intérêts",
@@ -47,6 +51,8 @@ const heroContent = {
       education: "Educación",
       experience: "Experiencia",
       projects: "Proyectos",
+      achievements: "Logros",
+      papers: "Artículos",
       techStack: "Tecnologías",
       skills: "Habilidades",
       interests: "Intereses",
@@ -64,6 +70,8 @@ const heroContent = {
       education: "التعليم",
       experience: "الخبرة",
       projects: "المشاريع",
+      achievements: "الإنجازات",
+      papers: "المقالات",
       techStack: "التقنيات",
       skills: "المهارات",
       interests: "الاهتمامات",
@@ -162,12 +170,12 @@ const Hero = ({ lang = 'en', setLang = (v) => {}, translations = {} }) => {
         {/* Achievements icon */}
         <div className="hero-icon-cell" onClick={() => handleNavClick('achievements')} role="button" tabIndex={0}>
           <Icon icon="mdi:trophy" width="36" height="36" />
-          <span className="text-xs font-quicksand mt-1">Achievements</span>
+          <span className="text-xs font-quicksand mt-1">{content.icons.achievements}</span>
         </div>
         {/* Papers icon */}
         <div className="hero-icon-cell" onClick={() => handleNavClick('papers')} role="button" tabIndex={0}>
           <Icon icon="mdi:file-document" width="36" height="36" />
-          <span className="text-xs font-quicksand mt-1">Papers</span>
+          <span className="text-xs font-quicksand mt-1">{content.icons.papers}</span>
         </div>
         <div className="hero-icon-cell" onClick={() => handleNavClick('techStack')} role="button" tabIndex={0}>
           <Icon icon="mdi:tools" width="36" height="36" />
