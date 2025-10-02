@@ -25,11 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <Analytics /> 
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Wrap your actual app content */}
+        <div className="app-wrapper">
+          {children}
+        </div>
+
+        {/* Analytics will not interfere with layout */}
+        <Analytics />
       </body>
     </html>
   );
